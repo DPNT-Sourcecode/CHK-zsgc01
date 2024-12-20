@@ -10,7 +10,6 @@ class TestCheckoutSuite():
         '''
         test the checkout method
         '''
-
         #test normal behaviour without any applicable special offers
         test_sku_string_no_offer: str = 'ABCD'
         actual_checkout_value_no_offer = checkout_solution.checkout(test_sku_string_no_offer)
@@ -28,10 +27,17 @@ class TestCheckoutSuite():
         actual_checkout_value_with_number_arg = checkout_solution.checkout(test_illegal_number_arg)
         assert actual_checkout_value_with_number_arg == -1
 
-
         #test illegal SKU value
         test_illegal_sku = 'AXVB'
-        
+        actual_checkout_value_with_illegal_sku_value = checkout_solution.checkout(test_illegal_sku)
+        assert actual_checkout_value_with_illegal_sku_value == -1
+
+        #test empty string
+        actual_checkout_value_with_empty_string = checkout_solution.checkout('')
+        assert actual_checkout_value_with_empty_string == -1
+
+
+
 
 
 
