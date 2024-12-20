@@ -69,8 +69,9 @@ def __calculate_buy_one_get_one_free(sku_count_map: dict[str : int], bought_item
     '''
     calculates how many free items can be removed based on how many items were bought with buy two get one free discount
     '''
+    amount_multiple = 3 if bought_item_sku == 'F' else 2
     count_bought_item = sku_count_map[bought_item_sku]
-    count_free_item = count_bought_item // 2
+    count_free_item = count_bought_item // amount_multiple
     sku_count_map[free_item_sku] = max(0, sku_count_map[free_item_sku] - count_free_item)
     
     return sku_count_map
@@ -91,10 +92,6 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
-
-
-
-
 
 
 
