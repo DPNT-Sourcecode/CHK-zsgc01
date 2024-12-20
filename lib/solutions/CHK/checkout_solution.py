@@ -95,6 +95,14 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     return total_price_item
 
 
+def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str : list[tuple[int, int]]], dict[str : str]]:
+    '''
+    reads in a table string and returns the 4x maps used in the checkout function
+    the map
+    '''
+
+
+
 
 
 
