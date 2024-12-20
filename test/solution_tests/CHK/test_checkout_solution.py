@@ -106,12 +106,18 @@ class TestCheckoutSuite():
         '''
         test group discount offer
         '''
-
+        #test the group discount works when applied once
         test_string_1 = 'STX'
         actual_checkout_value_1 = checkout_solution.checkout(test_string_1)
         assert actual_checkout_value_1 == 45
 
-        
+        #test the group discount offer works when applied more than once
+        test_string_2 = 'STXAZSY'
+        actual_checkout_value_2 = checkout_solution.checkout(test_string_2)
+        assert actual_checkout_value_2 == 90
+
+
+
 
 
 
