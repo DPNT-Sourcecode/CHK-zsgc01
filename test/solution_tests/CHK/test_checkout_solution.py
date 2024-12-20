@@ -102,6 +102,20 @@ class TestCheckoutSuite():
         assert actual_checkout_value_with_empty_string == 0
 
 
+    def test_group_discount_offer(self) -> None:
+        '''
+        test group discount offer
+        '''
+
+        test_string_1 = 'STX'
+        actual_checkout_value_1 = checkout_solution.checkout(test_string_1)
+        assert actual_checkout_value_1 == 45
+
+        
+
+
+
+
 
 
 
