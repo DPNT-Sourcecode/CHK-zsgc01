@@ -10,6 +10,11 @@ def checkout(skus: str) -> int:
     if not isinstance(skus, str): return -1
     if len(skus) == 0: return 0
 
+
+    sku_count_map, 
+    sku_price_map, 
+    sku_discount_map, 
+    sku_buy_two_get_one_free_map = __create_checkout_maps()
     #map to keep count of how many items are in the SKU string
     sku_count_map: dict[str : int] = {
         'A': 0,
@@ -162,7 +167,16 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
             sorted_discounts = sorted(discounts, key=lambda x: x[1], reverse=True)
             sku_discount_map[sku] = sorted_discounts
 
-            free
+            free_offer_match = re.search(r"(\d+)(\w) get one (\w) free", offers)
+            if free_offer_match:
+                quantity_required = int(free_offer_match.group(1)[:-1])
+                target_sku = free_offer_match.group(3)
+                sku_buy_two_get_one_free_map[sku] = (target_sku, quantity_required)
+            else:
+                sku_buy_two_get_one_free_map[sku] = None
+
+    return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
+
 
 
 
