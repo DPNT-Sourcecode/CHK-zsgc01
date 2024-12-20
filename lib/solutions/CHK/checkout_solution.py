@@ -30,7 +30,7 @@ def checkout(skus: str) -> int:
         total_checkout_price += __calculate_price_of_item_with_discounts(sku_count_map, sku_price_map, sku_discount_map[sku], sku)
 
     #calculate savings from the group discount offer
-    total_checkout_price -= __calculate_price_of_item_with_discounts(sku_count_map, sku_price_map)
+    total_checkout_price -= __calculate_group_discount_offer(sku_count_map, sku_price_map)
 
     return total_checkout_price
 
@@ -55,6 +55,8 @@ def __calculate_group_discount_offer(sku_count_map: dict[str : int], sku_price_m
     group_offer_price = 45
     number_of_groups = count_applicable_items // 3
     offer_price = number_of_groups * group_offer_price
+
+    if offer_price == 0: return 0
 
     return unadjusted_price - offer_price
     
@@ -163,6 +165,7 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
                 sku_buy_two_get_one_free_map[sku] = None
 
     return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
+
 
 
 
