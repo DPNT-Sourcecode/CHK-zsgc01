@@ -26,7 +26,12 @@ def checkout(skus: str) -> int:
 
     for sku_char in skus:
         if sku_char not in sku_count_map: return -1
-        sku_count_map[sku_char]
+        sku_count_map[sku_char] += 1
+
+    total_checkout_value = 0
+
+    
+
 
 
 
