@@ -38,7 +38,13 @@ class TestCheckoutSuite():
         test checkout where multiple offers are applicable
         '''
 
-        test_sku_string_with_multle_special_orders_a = 'AAABAAAAACAAACAA'
+        test_sku_string_with_multle_special_orders_a = 'AAABAAAAACAAACAAD'
+        actual_checkout_value_with_multiple_offer_a = checkout_solution.checkout(test_sku_string_with_multle_special_orders_a)
+        
+        #total of 13 As, 1 B, 2 C and 1 D
+        expected_checkout_value_a = 200 + 130 + 130 + (2 * 50) + 2 * 20 + 30 + 15
+
+        
 
 
     def test_checkout_illegal_arguments(self) -> None:
@@ -63,6 +69,7 @@ class TestCheckoutSuite():
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
         assert actual_checkout_value_with_empty_string == 0
+
 
 
 
