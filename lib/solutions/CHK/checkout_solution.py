@@ -30,7 +30,16 @@ def checkout(skus: str) -> int:
 
     total_checkout_value = 0
 
-    
+    number_of_item_a_at_normal_price = sku_count_map['A'] % 3
+    number_of_discounted_item_a = sku_count_map['A'] / 3
+    total_price_a = (number_of_item_a_at_normal_price * 50) + (number_of_discounted_item_a * 130)
+
+    number_of_item_b_at_normal_price = sku_count_map['B'] % 3
+    number_of_discounted_item_b = sku_count_map['B'] / 3
+    total_price_b = (number_of_item_b_at_normal_price * 30) + (number_of_discounted_item_b * 45)
+
+    total_price_c = 
+
 
 
 
