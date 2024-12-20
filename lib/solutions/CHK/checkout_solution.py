@@ -43,19 +43,20 @@ def checkout(skus: str) -> int:
         'F': []
     }
 
-    sku_buy_two_get_one_free_map: dict[str : list[tuple[int, int]]] = {
-        'A': [],
-        'B': [],
-        'C': [],
-        'D': [],
-        'E': ['B'],
-        'F': ['F']
+    sku_buy_two_get_one_free_map: dict[str : str] = {
+        'A': '',
+        'B': '',
+        'C': '',
+        'D': '',
+        'E': 'B',
+        'F': 'F'
     }
 
     #calculate remaining count after buy one get one free discounts
     # sku_count_map = __calculate_buy_one_get_one_free(sku_count_map)
     for sku in sku_buy_two_get_one_free_map:
-        sku_count_map = __calculate_buy_one_get_one_free()
+        if len(sku_buy_two_get_one_free_map[sku]) == 0: continue
+        sku_count_map = __calculate_buy_one_get_one_free(sku_count_map, sku, sku_buy_two_get_one_free_map[sku])
 
     #iterate through checkout prices and calculate discounts
     total_checkout_price = 0
@@ -71,8 +72,7 @@ def __calculate_buy_one_get_one_free(sku_count_map: dict[str : int], bought_item
     '''
     count_bought_item = sku_count_map[bought_item_sku]
     count_free_item = count_bought_item // 2
-    sku_count_map['B'] = max(0, sku_count_map['B'] - count_free_item)
-    
+    sku_count_map[free_item_sku] = max(0, sku_count_map[free_item_sku] - count_free_item)
     
     return sku_count_map
 
@@ -92,6 +92,7 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
+
 
 
 
