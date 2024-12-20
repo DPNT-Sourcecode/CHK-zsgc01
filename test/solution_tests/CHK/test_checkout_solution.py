@@ -11,10 +11,18 @@ class TestCheckoutSuite():
         test the checkout method
         '''
 
-        #test normal behaviour without applica
-        test_sku_string: str = 'ABCD'
-        actual_checkout_value = checkout_solution.checkout(test_sku_string)
-        expected_checkout_value = 50 + 30 + 20 + 15
-        assert actual_checkout_value == expected_checkout_value
+        #test normal behaviour without any applicable special offers
+        test_sku_string_no_offer: str = 'ABCD'
+        actual_checkout_value_no_offer = checkout_solution.checkout(test_sku_string_no_offer)
+        expected_checkout_value_no_offer = 50 + 30 + 20 + 15
+        assert actual_checkout_value_no_offer == expected_checkout_value_no_offer
+
+        #test behaviour when special offers apply
+        test_sku_string_with_offer: str = 'ABAACD'
+        actual_checkout_value_with_offer = checkout_solution.checkout(test_sku_string_with_offer)
+        expected_checkout_value_with_offer = 130 + 30 + 20 + 15
+        assert actual_checkout_value_with_offer == a
+
+
 
 
