@@ -136,11 +136,12 @@ class TestCheckoutSuite():
 
         test_string_3 = 'SSSZ'
         actual_checkout_value_3 = checkout_solution.checkout(test_string_3)
-        assert actual_checkout_value_3 == 45
+        assert actual_checkout_value_3 == 65
 
         test_string_4 = 'ZZZS'
         actual_checkout_value_4 = checkout_solution.checkout(test_string_4)
-        assert actual_checkout_value_4 == 45
+        assert actual_checkout_value_4 == 65
+
 
 
 
