@@ -138,8 +138,17 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
     | Z    | 50    |                        |
     +------+-------+------------------------+
     '''
+    sku_count_map: dict[str : int] = {}
+    sku_price_map: dict[str : int] = {}
+    sku_discount_map: dict[str : list[tuple[int, int]]] = {}
+    sku_buy_two_get_one_free_map: dict[str : str] = {}
 
-    sku_
+    for line in table.splitlines():
+        match = re.match(r"\| (\w+) +\| (\d+) +\| (.*?) *\|", line)
+        if match:
+            sku = match.group(1)
+
+
 
 
 
