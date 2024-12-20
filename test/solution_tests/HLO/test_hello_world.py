@@ -1,11 +1,11 @@
 
 from lib.solutions.HLO.hello_solution import hello
 
-class TestHelloWorld:
+class TestHelloWorld():
     '''
     Hello World Test Suite
     '''
-    def test_hello() -> None:
+    def test_hello(self) -> None:
         '''
         test hello world
         '''
