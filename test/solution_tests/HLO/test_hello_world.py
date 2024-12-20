@@ -12,7 +12,8 @@ class TestHelloWorld():
         test_name: str = 'Tom'
         response_string = hello(test_name)
 
-        assert response_string == 'Hello, World!'
+        assert response_string == f'Hello, {test_name}!'
+
 
 
 
