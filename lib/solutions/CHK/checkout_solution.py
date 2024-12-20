@@ -10,53 +10,14 @@ def checkout(skus: str) -> int:
     if not isinstance(skus, str): return -1
     if len(skus) == 0: return 0
 
-
     (sku_count_map, 
     sku_price_map, 
     sku_discount_map, 
     sku_buy_two_get_one_free_map) = __create_checkout_maps()
-    # #map to keep count of how many items are in the SKU string
-    # sku_count_map: dict[str : int] = {
-    #     'A': 0,
-    #     'B': 0,
-    #     'C': 0,
-    #     'D': 0,
-    #     'E': 0,
-    #     'F': 0
-    # }
 
     for sku_char in skus:
         if sku_char not in sku_count_map: return -1
         sku_count_map[sku_char] += 1
-
-    # #map of normal prices for all SKUs
-    # sku_price_map: dict[str : int] = {
-    #     'A': 50,
-    #     'B': 30,
-    #     'C': 20,
-    #     'D': 15,
-    #     'E': 40,
-    #     'F': 10
-    # }
-
-    # #discounts are in the format of (numbe_of_items, discount_price)
-    # sku_discount_map: dict[str : list[tuple[int, int]]] = {
-    #     'A': [(5, 200), (3, 130)],
-    #     'B': [(2, 45)],
-    #     'C': [],
-    #     'D': [],
-    #     'E': [],
-    #     'F': []
-    # }
-
-    # sku_buy_two_get_one_free_map: dict[str : str] = {
-    #     'A': None,
-    #     'B': None,
-    #     'C': None,
-    #     'D': None,
-    #     'E': ('B', 2),
-    #     'F': ('F', 2)
-    # }
 
     #calculate remaining count after buy one get one free discounts
     for sku in sku_buy_two_get_one_free_map:
@@ -174,8 +135,9 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
                 sku_buy_two_get_one_free_map[sku] = (target_sku, quantity_required)
             else:
                 sku_buy_two_get_one_free_map[sku] = None
-    print(sku_count_map)
+
     return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
+
 
 
 
