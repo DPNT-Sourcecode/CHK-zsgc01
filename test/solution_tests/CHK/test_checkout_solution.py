@@ -21,7 +21,21 @@ class TestCheckoutSuite():
         test_sku_string_with_offer: str = 'ABAACD'
         actual_checkout_value_with_offer = checkout_solution.checkout(test_sku_string_with_offer)
         expected_checkout_value_with_offer = 130 + 30 + 20 + 15
-        assert actual_checkout_value_with_offer == a
+        assert actual_checkout_value_with_offer == expected_checkout_value_with_offer
+
+        #test behaviour with illegal arguments
+        test_illegal_number_arg = 0
+        actual_checkout_value_with_number_arg = checkout_solution.checkout(test_illegal_number_arg)
+        assert actual_checkout_value_with_number_arg == -1
+
+
+        #test illegal SKU value
+        test_illegal_sku = 'AXVB'
+        
+
+
+
+
 
 
 
