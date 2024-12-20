@@ -72,14 +72,10 @@ class TestCheckoutSuite():
         expected_value_f_2 = 30
         assert expected_value_f_2 == actual_f_discount_amount_2
 
-        test_discount_string_3 = 'FFFF'
-        actual_f_discount_amount_2 = checkout_solution.checkout(test_discount_string_2)
-        expected_value_f_2 = 30
-        assert expected_value_f_2 == actual_f_discount_amount_2
-
-        "FFFFFF"
-
-
+        test_discount_string_3 = 'FFFFFF'
+        actual_f_discount_amount_3 = checkout_solution.checkout(test_discount_string_3)
+        expected_value_f_3 = 40
+        assert expected_value_f_3 == actual_f_discount_amount_3
 
 
     def test_checkout_illegal_arguments(self) -> None:
@@ -104,6 +100,7 @@ class TestCheckoutSuite():
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
         assert actual_checkout_value_with_empty_string == 0
+
 
 
 
