@@ -48,7 +48,7 @@ def checkout(skus: str) -> int:
         'B': '',
         'C': '',
         'D': '',
-        'E': 'B',
+        'E': ('B', 2),
         'F': 'F'
     }
 
@@ -92,6 +92,7 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
+
 
 
 
