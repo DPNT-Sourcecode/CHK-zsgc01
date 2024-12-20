@@ -22,6 +22,12 @@ class TestCheckoutSuite():
         expected_checkout_value_with_offer = 130 + 30 + 20 + 15
         assert actual_checkout_value_with_offer == expected_checkout_value_with_offer
 
+        #test behaviour when special offers apply
+        test_sku_string_with_offer_2: str = 'ABBACD'
+        actual_checkout_value_with_offer_2 = checkout_solution.checkout(test_sku_string_with_offer_2)
+        expected_checkout_value_with_offer_2 = 50 + 50 + 45 + 20 + 15
+        assert actual_checkout_value_with_offer_2 == expected_checkout_value_with_offer_2
+
         #test behaviour with illegal arguments
         test_illegal_number_arg = 0
         actual_checkout_value_with_number_arg = checkout_solution.checkout(test_illegal_number_arg)
@@ -35,6 +41,7 @@ class TestCheckoutSuite():
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
         assert actual_checkout_value_with_empty_string == -1
+
 
 
 
