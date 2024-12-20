@@ -1,4 +1,5 @@
 
+import re
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -98,9 +99,47 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
 def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str : list[tuple[int, int]]], dict[str : str]]:
     '''
     reads in a table string and returns the 4x maps used in the checkout function
-    the map
+    the maps returned are in the following order (as a tuple):
+        1) sku_count_map
+        2) sku_price_map
+        3) sku_discount_map
+        4) sku_buy_two_get_one_free_map
     '''
 
+    table = '''
+    +------+-------+------------------------+
+    | Item | Price | Special offers         |
+    +------+-------+------------------------+
+    | A    | 50    | 3A for 130, 5A for 200 |
+    | B    | 30    | 2B for 45              |
+    | C    | 20    |                        |
+    | D    | 15    |                        |
+    | E    | 40    | 2E get one B free      |
+    | F    | 10    | 2F get one F free      |
+    | G    | 20    |                        |
+    | H    | 10    | 5H for 45, 10H for 80  |
+    | I    | 35    |                        |
+    | J    | 60    |                        |
+    | K    | 80    | 2K for 150             |
+    | L    | 90    |                        |
+    | M    | 15    |                        |
+    | N    | 40    | 3N get one M free      |
+    | O    | 10    |                        |
+    | P    | 50    | 5P for 200             |
+    | Q    | 30    | 3Q for 80              |
+    | R    | 50    | 3R get one Q free      |
+    | S    | 30    |                        |
+    | T    | 20    |                        |
+    | U    | 40    | 3U get one U free      |
+    | V    | 50    | 2V for 90, 3V for 130  |
+    | W    | 20    |                        |
+    | X    | 90    |                        |
+    | Y    | 10    |                        |
+    | Z    | 50    |                        |
+    +------+-------+------------------------+
+    '''
+
+    sku_
 
 
 
