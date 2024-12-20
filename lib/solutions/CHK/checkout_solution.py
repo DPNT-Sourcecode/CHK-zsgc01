@@ -149,11 +149,9 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
     sku_buy_two_get_one_free_map: dict[str : str] = {}
 
     for line in table.splitlines():
-        match = re.match(r"\| (\w+) \s*\| (\d+) \s*\| (.*?) \s*\|", line)
+        match = re.match(r"\s*\| (\w+) \s*\| (\d+) \s*\| (.*?) \s*\|", line)
         if match:
-            print('match made')
             sku = match.group(1)
-            print(sku)
             price = int(match.group(2))
             offers = match.group(3).strip()
 
@@ -171,13 +169,14 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
 
             free_offer_match = re.search(r"(\d+)(\w) get one (\w) free", offers)
             if free_offer_match:
-                quantity_required = int(free_offer_match.group(1)[:-1])
+                quantity_required = int(free_offer_match.group(1))
                 target_sku = free_offer_match.group(3)
                 sku_buy_two_get_one_free_map[sku] = (target_sku, quantity_required)
             else:
                 sku_buy_two_get_one_free_map[sku] = None
     print(sku_count_map)
     return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
+
 
 
 
