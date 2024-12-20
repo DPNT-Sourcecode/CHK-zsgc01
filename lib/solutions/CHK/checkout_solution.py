@@ -33,7 +33,13 @@ def checkout(skus: str) -> int:
 
 
 
-def __calculate_group_discount_offer() ->
+def __calculate_group_discount_offer(sku_count_map: dict[str : int]) -> int:
+    '''
+    calculate all group discount offers and return the amount to be removed from the total
+    '''
+    sku_group_offer_applies_to = ['S', 'T', 'X', 'Y', 'Z']
+
+
 def __calculate_buy_two_get_one_free(sku_count_map: dict[str : int], bought_item_sku: str, free_item_sku: str, multiple: int) -> dict[str : int]:
     '''
     calculates how many free items can be removed based on how many items were bought with buy two get one free discount
@@ -138,6 +144,7 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
                 sku_buy_two_get_one_free_map[sku] = None
 
     return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
+
 
 
 
