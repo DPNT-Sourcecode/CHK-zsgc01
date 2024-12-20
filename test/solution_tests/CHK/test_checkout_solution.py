@@ -45,9 +45,9 @@ class TestCheckoutSuite():
         assert actual_checkout_value_with_multiple_offer_a == expected_checkout_value_a
 
 
-    def test_buy_one_get_one_free_offers(self) -> None:
+    def test_buy_two_get_one_free_offers(self) -> None:
         '''
-        test buy one get one free offers
+        test buy two get one free offers
         '''
         #make sure b is free
         test_sku_string_with_get_one_b_free_1 = 'EEB'
@@ -55,11 +55,19 @@ class TestCheckoutSuite():
         expected_value_a = 40 * 2
         assert actual_buy_one_get_one_free_value_1 == expected_value_a
 
-        ##make sure one b is free and B's discount not applied
+        #make sure one b is free and B's discount not applied
         test_sku_string_with_get_one_b_free_2 = 'EEBB'
         actual_buy_one_get_one_free_value_2 = checkout_solution.checkout(test_sku_string_with_get_one_b_free_2)
         expected_value_b = (40 * 2) + 30
         assert actual_buy_one_get_one_free_value_2 == expected_value_b
+
+        #make sure buy two get one free discount applies to F
+        test_f_discount_string = 'FFF'
+        actual_f_discount_amount = checkout_solution.checkout(test_f_discount_string)
+        expected_f
+
+
+
 
 
     def test_checkout_illegal_arguments(self) -> None:
@@ -84,6 +92,7 @@ class TestCheckoutSuite():
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
         assert actual_checkout_value_with_empty_string == 0
+
 
 
 
