@@ -15,7 +15,8 @@ def checkout(skus: str) -> int:
         'B': 0,
         'C': 0,
         'D': 0,
-        'E': 0
+        'E': 0,
+        'F': 0
     }
 
     for sku_char in skus:
@@ -28,7 +29,8 @@ def checkout(skus: str) -> int:
         'B': 30,
         'C': 20,
         'D': 15,
-        'E': 40
+        'E': 40,
+        'F': 10
     }
 
     #discounts are in the format of (numbe_of_items, discount_price)
@@ -37,19 +39,23 @@ def checkout(skus: str) -> int:
         'B': [(2, 45)],
         'C': [],
         'D': [],
-        'E': []
+        'E': [],
+        'F': []
     }
 
     sku_buy_two_get_one_free_map: dict[str : list[tuple[int, int]]] = {
-        'A': [(5, 200), (3, 130)],
-        'B': [(2, 45)],
+        'A': [],
+        'B': [],
         'C': [],
         'D': [],
-        'E': []
+        'E': ['B'],
+        'F': ['F']
     }
 
     #calculate remaining count after buy one get one free discounts
-    sku_count_map = __calculate_buy_one_get_one_free(sku_count_map)
+    # sku_count_map = __calculate_buy_one_get_one_free(sku_count_map)
+    for sku in sku_buy_two_get_one_free_map:
+        sku_count_map = __calculate_buy_one_get_one_free()
 
     #iterate through checkout prices and calculate discounts
     total_checkout_price = 0
@@ -59,13 +65,13 @@ def checkout(skus: str) -> int:
     return total_checkout_price
 
 
-def __calculate_buy_one_get_one_free(sku_count_map: dict[str : int]) -> dict[str : int]:
+def __calculate_buy_one_get_one_free(sku_count_map: dict[str : int], bought_item_sku: str, free_item_sku: str) -> dict[str : int]:
     '''
     calculates how many B items can be removed based on how many E's were bought
     '''
-    count_e = sku_count_map['E']
-    count_free_b = count_e // 2
-    sku_count_map['B'] = max(0, sku_count_map['B'] - count_free_b)
+    count_bought_item = sku_count_map[bought_item_sku]
+    count_free_item = count_bought_item // 2
+    sku_count_map['B'] = max(0, sku_count_map['B'] - count_free_item)
     
     
     return sku_count_map
@@ -86,6 +92,7 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
+
 
 
 
