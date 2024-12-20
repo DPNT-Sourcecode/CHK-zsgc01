@@ -181,7 +181,3 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
 
     return (sku_count_map, sku_price_map, sku_discount_map, sku_buy_two_get_one_free_map)
 
-
-
-
-
