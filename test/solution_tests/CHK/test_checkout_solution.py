@@ -28,6 +28,15 @@ class TestCheckoutSuite():
         expected_checkout_value_with_offer_2 = 50 + 50 + 45 + 20 + 15
         assert actual_checkout_value_with_offer_2 == expected_checkout_value_with_offer_2
 
+    
+        #test empty string
+        actual_checkout_value_with_empty_string = checkout_solution.checkout('')
+        assert actual_checkout_value_with_empty_string == 0
+
+    def test_checkout_illegal_arguments(self) -> None:
+        '''
+        test illegal argument inputs
+        '''
         #test behaviour with illegal arguments
         test_illegal_number_arg = 0
         actual_checkout_value_with_number_arg = checkout_solution.checkout(test_illegal_number_arg)
@@ -38,9 +47,12 @@ class TestCheckoutSuite():
         actual_checkout_value_with_illegal_sku_value = checkout_solution.checkout(test_illegal_sku)
         assert actual_checkout_value_with_illegal_sku_value == -1
 
-        #test empty string
-        actual_checkout_value_with_empty_string = checkout_solution.checkout('')
-        assert actual_checkout_value_with_empty_string == 0
+
+    def test_checkout_illegal_arguments(self) -> None:
+        '''
+        
+        '''
+
 
 
 
