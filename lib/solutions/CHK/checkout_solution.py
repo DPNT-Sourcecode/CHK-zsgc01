@@ -158,7 +158,12 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
                 for discount in re.findall(r"(\d+)(\w) for (\d+)", offers):
                     quantity, item, discount_price = discount
                     if item == sku:
-                        dis
+                        discounts.append((int(quantity), int(discount_price)))
+            sorted_discounts = sorted(discounts, key=lambda x: x[1], reverse=True)
+            sku_discount_map[sku] = sorted_discounts
+
+            free
+
 
 
 
