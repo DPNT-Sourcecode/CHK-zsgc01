@@ -31,7 +31,16 @@ def checkout(skus: str) -> int:
         'E': 40
     }
 
+    #discounts are in the format of (numbe_of_items, discount_price)
     sku_discount_map: dict[str : list[tuple[int, int]]] = {
+        'A': [(5, 200), (3, 130)],
+        'B': [(2, 45)],
+        'C': [],
+        'D': [],
+        'E': []
+    }
+
+    sku_buy_two_get_one_free_map: dict[str : list[tuple[int, int]]] = {
         'A': [(5, 200), (3, 130)],
         'B': [(2, 45)],
         'C': [],
@@ -57,6 +66,8 @@ def __calculate_buy_one_get_one_free(sku_count_map: dict[str : int]) -> dict[str
     count_e = sku_count_map['E']
     count_free_b = count_e // 2
     sku_count_map['B'] = max(0, sku_count_map['B'] - count_free_b)
+    
+    
     return sku_count_map
 
 
@@ -75,6 +86,7 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
+
 
 
 
