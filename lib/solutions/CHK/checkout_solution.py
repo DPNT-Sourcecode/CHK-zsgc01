@@ -60,12 +60,18 @@ def __calculate_price_of_item_a(sku_count_map: dict[str : int], sku_price_map: d
     '''
     count_of_item_a = sku_count_map['A']
 
-    
+    total_price_item_a = 0
+
+    discount_list = [(5, 200), (3, 130)]
+
+    for number, offer_price in discount_list:
+        total_price_item += count_of_item_a // number * offer_price
 
     #calculate total price of A with discounts included
     number_of_item_a_at_normal_price = sku_count_map['A'] % 3
     number_of_discounted_item_a = sku_count_map['A'] // 3
     total_price_a = (number_of_item_a_at_normal_price * sku_price_map['A']) + (number_of_discounted_item_a * 130)
+
 
 
 
