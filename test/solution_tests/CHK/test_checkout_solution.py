@@ -67,6 +67,8 @@ class TestCheckoutSuite():
         expected_value_f = 20
         assert expected_value_f == actual_f_discount_amount
 
+        
+
 
     def test_checkout_illegal_arguments(self) -> None:
         '''
@@ -90,6 +92,7 @@ class TestCheckoutSuite():
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
         assert actual_checkout_value_with_empty_string == 0
+
 
 
 
