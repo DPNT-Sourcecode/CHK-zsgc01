@@ -54,9 +54,7 @@ def checkout(skus: str) -> int:
     return total_price_a + total_price_b + total_price_c + total_price_d
 
 
-def __calculate
-
-
+def __calculate_
 
 
 
