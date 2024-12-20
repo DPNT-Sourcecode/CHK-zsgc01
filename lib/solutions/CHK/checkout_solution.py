@@ -4,15 +4,7 @@
 # skus = unicode string
 def checkout(skus: str) -> int:
     '''
-    Our price table and offers: 
-    +------+-------+----------------+
-    | Item | Price | Special offers |
-    +------+-------+----------------+
-    | A    | 50    | 3A for 130     |
-    | B    | 30    | 2B for 45      |
-    | C    | 20    |                |
-    | D    | 15    |                |
-    +------+-------+----------------+
+    checkout function
     '''
     if not isinstance(skus, str): return -1
     if len(skus) == 0: return 0
@@ -47,8 +39,10 @@ def checkout(skus: str) -> int:
         'E': []
     }
 
+    #calculate remaining count after buy one get one free discounts
     sku_count_map = __calculate_buy_one_get_one_free(sku_count_map)
 
+    #iterate through checkout prices and calculate discounts
     total_checkout_price = 0
     for sku in sku_count_map:
         total_checkout_price += __calculate_price_of_item_with_discounts(sku_count_map, sku_price_map, sku_discount_map[sku], sku)
@@ -81,15 +75,6 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
-
-
-
-
-
-
-
-
-
 
 
 
