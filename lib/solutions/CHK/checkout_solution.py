@@ -54,7 +54,19 @@ def checkout(skus: str) -> int:
     return total_price_a + total_price_b + total_price_c + total_price_d
 
 
-def __calculate_
+def __calculate_price_of_item_a(sku_count_map: dict[str : int], sku_price_map: dict[str : int]) -> dict[str : int]:
+    '''
+    returns an updated SKU count map
+    '''
+    count_of_item_a = sku_count_map['A']
+
+    
+
+    #calculate total price of A with discounts included
+    number_of_item_a_at_normal_price = sku_count_map['A'] % 3
+    number_of_discounted_item_a = sku_count_map['A'] // 3
+    total_price_a = (number_of_item_a_at_normal_price * sku_price_map['A']) + (number_of_discounted_item_a * 130)
+
 
 
 
