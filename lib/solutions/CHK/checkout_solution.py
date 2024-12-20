@@ -147,6 +147,19 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
         match = re.match(r"\| (\w+) +\| (\d+) +\| (.*?) *\|", line)
         if match:
             sku = match.group(1)
+            price = int(match.group(2))
+            offers = match.group(3).strip()
+
+            sku_count_map[sku] = 0
+            sku_price_map[sku] = price
+
+            discounts = []
+            if 'for' in offers:
+                for discount in re.findall(r"(\d+)(\w) for (\d+)", offers):
+                    quantity, item, discount_price = discount
+                    if item == sku:
+                        dis
+
 
 
 
