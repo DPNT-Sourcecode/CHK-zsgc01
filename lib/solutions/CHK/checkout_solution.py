@@ -14,7 +14,21 @@ def checkout(skus: str) -> int:
     | D    | 15    |                |
     +------+-------+----------------+
     '''
+    if not isinstance(skus, str): return -1
     if len(skus) == 0: return -1
-    if not isinstance()
+
+    sku_count_map: dict[str : int] = {
+        'A': 0,
+        'B': 0,
+        'C': 0,
+        'D': 0
+    }
+
+    for sku_char in skus:
+        if sku_char not in sku_count_map: return -1
+        sku_count_map[sku_char]
+
+
+
 
 
