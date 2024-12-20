@@ -88,13 +88,17 @@ def __calculate_price_of_item_with_discounts(sku_count_map: dict[str : int], sku
 
     total_price_item = 0
 
+    print(item + '--------------------')
     for number, offer_price in discounts:
-        total_price_item += count_of_item // number * offer_price
-        count_of_item %= number
+        total_price_item += (count_of_item // number) * offer_price
+        count_of_item = count_of_item % number
+        print(total_price_item)
+
 
     total_price_item += count_of_item * sku_price_map[item]
 
     return total_price_item
+
 
 
 
