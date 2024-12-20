@@ -40,7 +40,8 @@ class TestCheckoutSuite():
 
         #test empty string
         actual_checkout_value_with_empty_string = checkout_solution.checkout('')
-        assert actual_checkout_value_with_empty_string == -1
+        assert actual_checkout_value_with_empty_string == 0
+
 
 
 

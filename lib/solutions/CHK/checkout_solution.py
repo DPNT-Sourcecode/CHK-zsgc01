@@ -15,7 +15,7 @@ def checkout(skus: str) -> int:
     +------+-------+----------------+
     '''
     if not isinstance(skus, str): return -1
-    if len(skus) == 0: return -1
+    if len(skus) == 0: return 0
 
     #map to keep count of how many items are in the SKU string
     sku_count_map: dict[str : int] = {
@@ -52,6 +52,7 @@ def checkout(skus: str) -> int:
     total_price_d = sku_count_map['D'] * sku_price_map['D']
 
     return total_price_a + total_price_b + total_price_c + total_price_d
+
 
 
 
