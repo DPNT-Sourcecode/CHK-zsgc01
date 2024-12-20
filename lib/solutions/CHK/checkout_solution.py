@@ -143,11 +143,3 @@ def __create_checkout_maps() -> tuple[dict[str : int], dict[str : int], dict[str
 
 
 
-
-
-
-
-
-
-
-
