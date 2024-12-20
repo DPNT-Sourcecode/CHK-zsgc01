@@ -16,11 +16,23 @@ class TestCheckoutSuite():
         expected_checkout_value_no_offer = 50 + 30 + 20 + 15 + 40
         assert actual_checkout_value_no_offer == expected_checkout_value_no_offer
 
-        #test normal behaviour without any applicable special offers
+        #test value of K
         test_k: str = 'K'
         actual_k = checkout_solution.checkout(test_k)
-        expected_k = 
-        assert actual_checkout_value_no_offer == expected_checkout_value_no_offer
+        expected_k = 70
+        assert actual_k == expected_k
+
+        #test value of S
+        test_s: str = 'S'
+        actual_s = checkout_solution.checkout(test_s)
+        expected_s = 20
+        assert actual_s == expected_s
+
+        #test value of X
+        test_x: str = 'X'
+        actual_x = checkout_solution.checkout(test_x)
+        expected_x = 17
+        assert actual_x == expected_x
 
 
     def test_checkout_with_single_offers(self) -> None:
@@ -121,6 +133,7 @@ class TestCheckoutSuite():
         test_string_2 = 'STXAZSY'
         actual_checkout_value_2 = checkout_solution.checkout(test_string_2)
         assert actual_checkout_value_2 == 140
+
 
 
 
